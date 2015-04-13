@@ -18,7 +18,7 @@ integration tests, or all tests. Unit tests are placed in `PLUGIN/tests/unit` ad
 are placed in `PLUGIN/tests/integration`.  You can modify the Elgg configuration for the test
 environment by creating a file named `PLUGIN/tests/integration/settings.phpunit.php`.
 
-Tests are executed as follows:
+### Run the tests
 
 ```Shell
 # Run unit tests
@@ -29,4 +29,15 @@ phpunit -c vendor/foogile/elgg-phpunit/phpunit.integration.unit.xml
 
 # Run all tests
 phpunit -c vendor/foogile/elgg-phpunit/phpunit.xml
+```
+
+### Elgg installation helper
+
+It is included a utility script to install an Elgg test environment. To
+initialize the database, specify your database setup in 
+`PLUGIN/tests/integration/settings.phpunit.php` and execute the following
+from the root folder of your plugin:
+
+```Shell
+php vendor/foogile/elgg-phpunit/install.php
 ```

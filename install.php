@@ -6,7 +6,7 @@
 
 // Prepare environment
 $_SERVER['SERVER_PORT'] = 443;
-set_include_path('.:../../:./tests:' . get_include_path());
+set_include_path('.:../../:./tests/integration:' . get_include_path());
 
 // Autoloader
 require_once 'engine/load.php';
