@@ -1,7 +1,7 @@
 # Elgg PHPUnit
 
 Simple test configuration to support integration testing for Elgg using
-PHPUnit. Assumes the default directory structure for Elgg 1.9 is in use.
+PHPUnit. Assumes the default directory structure for Elgg 1.9.
 
 ## Installation
 
