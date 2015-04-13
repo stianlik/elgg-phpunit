@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="bootstrap.php" colors="true" backupGlobals="false">
+    <testsuites>
+        <testsuite name="integration">
+            <directory>../../../tests/integration</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <server name="SERVER_PORT">443</server>
+        <includePath>../../../tests/integration</includePath>
+
+        <!-- Root directory for Elgg installation -->
+        <includePath>../../../../../</includePath>
+    </php>
+</phpunit>
