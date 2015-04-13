@@ -8,7 +8,7 @@ PHPUnit. Assumes the default directory structure for Elgg 1.9 is in use.
 Install test configuration into your plugin using composer:
 
 ```PHP
-composer install foogile/elgg-phpunit
+require install foogile/elgg-phpunit
 ```
 
 ## Usage
