@@ -1,13 +1,13 @@
 # Elgg PHPUnit
 
-Simple test configuration to support integration testing for Elgg using
+Simple test configuration to support integration testing in Elgg using
 PHPUnit. Assumes the default directory structure for Elgg 1.9.
 
 ## Installation
 
 Install test configuration into your plugin using composer:
 
-```PHP
+```Shell
 composer require foogile/elgg-phpunit
 ```
 
@@ -18,16 +18,21 @@ integration tests, or all tests. Unit tests are placed in `PLUGIN/tests/unit` ad
 are placed in `PLUGIN/tests/integration`.  You can modify the Elgg configuration for the test
 environment by creating a file named `PLUGIN/tests/integration/settings.phpunit.php`.
 
-### Run the tests
+### Run unit tests
 
 ```Shell
-# Run unit tests
 phpunit -c vendor/foogile/elgg-phpunit/phpunit.unit.xml
+```
 
-# Run integration tests
+### Run integration tests
+
+```Shell
 phpunit -c vendor/foogile/elgg-phpunit/phpunit.integration.unit.xml
+```
 
-# Run all tests
+### Run all tests
+
+```Shell
 phpunit -c vendor/foogile/elgg-phpunit/phpunit.xml
 ```
 
