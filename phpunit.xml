@@ -10,6 +10,7 @@
     </testsuites>
     <php>
         <server name="SERVER_PORT">443</server>
+        <includePath>../../../tests</includePath>
         <includePath>../../../tests/integration</includePath>
 
         <!-- Root directory for Elgg installation -->

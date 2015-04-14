@@ -18,6 +18,11 @@ integration tests, or all tests. Unit tests are placed in `PLUGIN/tests/unit` ad
 are placed in `PLUGIN/tests/integration`.  You can modify the Elgg configuration for the test
 environment by creating a file named `PLUGIN/tests/integration/settings.phpunit.php`.
 
+### Bootstrap
+
+You can run custom init code by creating `PLUGIN/tests/integration/bootstrap.php` and
+`PLUGIN/tests/unit/bootstrap.php` for integration and unit tests, respectively.
+
 ### Run unit tests
 
 ```Shell
