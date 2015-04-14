@@ -9,14 +9,11 @@ $CONFIG->boot_complete = false;
 
 $settings = "engine/settings.php";
 
-// Use sample config if Elgg is not yet configured
-if (stream_resolve_include_path('engine/settings.php')) {
-    $settings = "engine/settings.example.php";
-}
-
 // Load configuration
-if (stream_resolve_include_path($settings)) {
-    require_once $settings;
+if (stream_resolve_include_path('engine/settings.php')) {
+    require_once 'engine/settings.php';
+} else if (stream_resolve_include_path('engine/settings.example.php')) {
+    require_once 'engine/settings.example.php';
 }
 
 // Load test configuration
@@ -27,7 +24,66 @@ if (stream_resolve_include_path('settings.phpunit.php')) {
 // This will be overridden by the DB value but may be needed before the upgrade script can be run.
 $CONFIG->default_limit = 10;
 
-require_once 'engine/load.php';
+if (stream_resolve_include_path('engine/load.php')) {
+    require_once 'engine/load.php';
+} else {
+    // Elgg 1.9 does not separate loading from bootstrap
+
+    require_once("engine/lib/autoloader.php");
+    require_once("engine/lib/elgglib.php");
+
+    $lib_files = array(
+	    'access.php',
+	    'actions.php',
+	    'admin.php',
+	    'annotations.php',
+	    'cache.php',
+	    'comments.php',
+	    'configuration.php',
+	    'cron.php',
+	    'database.php',
+	    'entities.php',
+	    'extender.php',
+	    'filestore.php',
+	    'friends.php',
+	    'group.php',
+	    'input.php',
+	    'languages.php',
+	    'mb_wrapper.php',
+	    'memcache.php',
+	    'metadata.php',
+	    'metastrings.php',
+	    'navigation.php',
+	    'notification.php',
+	    'objects.php',
+	    'output.php',
+	    'pagehandler.php',
+	    'pageowner.php',
+	    'pam.php',
+	    'plugins.php',
+	    'private_settings.php',
+	    'relationships.php',
+	    'river.php',
+	    'sessions.php',
+	    'sites.php',
+	    'statistics.php',
+	    'system_log.php',
+	    'tags.php',
+	    'user_settings.php',
+	    'users.php',
+	    'upgrade.php',
+	    'views.php',
+	    'widgets.php',
+	    // backward compatibility
+	    'deprecated-1.7.php',
+	    'deprecated-1.8.php',
+	    'deprecated-1.9.php',
+    );
+
+    foreach ($lib_files as $file) {
+	    require_once("engine/lib/$file");
+    }
+}
 
 // Connect to database, load language files, load configuration, init session
 // Plugins can't use this event because they haven't been loaded yet.
