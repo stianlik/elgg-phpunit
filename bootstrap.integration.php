@@ -1,5 +1,9 @@
 <?php
 
+if (stream_resolve_include_path('tests/bootstrap.php')) {
+    require 'tests/bootstrap.php';
+}
+
 global $START_MICROTIME;
 $START_MICROTIME = microtime(true);
 
@@ -17,8 +21,8 @@ if (stream_resolve_include_path('engine/settings.php')) {
 }
 
 // Load test configuration
-if (stream_resolve_include_path('settings.phpunit.php')) {
-    require_once 'integration/settings.phpunit.php';
+if (stream_resolve_include_path('tests/integration/settings.php')) {
+    require_once 'tests/integration/settings.php';
 }
 
 // This will be overridden by the DB value but may be needed before the upgrade script can be run.
@@ -111,6 +115,6 @@ $CONFIG->boot_complete = true;
 // System loaded and ready
 elgg_trigger_event('ready', 'system');
 
-if (stream_resolve_include_path('integration/bootstrap.php')) {
-    require 'integration/bootstrap.php';
+if (stream_resolve_include_path('tests/integration/bootstrap.php')) {
+    require 'tests/integration/bootstrap.php';
 }

@@ -16,12 +16,13 @@ composer require foogile/elgg-phpunit
 There are three default PHPUnit configurations that can be used to run all unit tests, all
 integration tests, or all tests. Unit tests are placed in `PLUGIN/tests/unit` adn  integration tests
 are placed in `PLUGIN/tests/integration`.  You can modify the Elgg configuration for the test
-environment by creating a file named `PLUGIN/tests/integration/settings.phpunit.php`.
+environment by creating a file named `PLUGIN/tests/integration/settings.php`.
 
 ### Bootstrap
 
 You can run custom init code by creating `PLUGIN/tests/integration/bootstrap.php` and
-`PLUGIN/tests/unit/bootstrap.php` for integration and unit tests, respectively.
+`PLUGIN/tests/unit/bootstrap.php` for integration and unit tests, respectively. Additionally,
+`PLUGIN/tests/bootstrap.php` is loaded first for all cases.
 
 ### Run unit tests
 
@@ -45,7 +46,7 @@ phpunit -c vendor/foogile/elgg-phpunit/phpunit.xml
 
 It is included a utility script to install an Elgg test environment. To
 initialize the database, specify your database setup in 
-`PLUGIN/tests/integration/settings.phpunit.php` and execute the following
+`PLUGIN/tests/integration/settings.php` and execute the following
 from the root folder of your plugin:
 
 ```Shell

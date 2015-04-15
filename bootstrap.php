@@ -1,5 +1,5 @@
 <?php
 
-require 'bootstrap.unit.php';
-require 'bootstrap.integration.php';
+require __DIR__ . '/bootstrap.unit.php';
+require __DIR__ . '/bootstrap.integration.php';
 

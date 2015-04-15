@@ -6,6 +6,7 @@
         </testsuite>
     </testsuites>
     <php>
-        <includePath>../../../tests</includePath>
+        <!-- Plugin directory -->
+        <includePath>../../../</includePath>
     </php>
 </phpunit>
