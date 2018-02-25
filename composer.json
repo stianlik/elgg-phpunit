@@ -1,7 +1,7 @@
 {
     "name": "foogile/elgg-phpunit",
     "description": "PHPUnit setup to support integration testing with Elgg.",
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
 	"keywords": [ "elgg", "phpunit" ],
     "authors": [
         {
